@@ -7,8 +7,12 @@
 </head>
 
 <body>
+    <textarea class="ctext" style="width:60%;height:20%;"></textarea>
+    <button onclick="nsprint(document.getElementsByClassName('ctext'))" style="flex-direction:row;display:flex;">
+        <p>Read the custom text above with </p><img src="ico1.png" height="50%" width="50%">
+    </button>
     <button onclick="nsprint(document.getElementsByClassName('sprtxt'))" style="flex-direction:row;display:flex;">
-        <p>Read with </p><img src="ico1.png" height="50%" width="50%">
+        <p>Read the sample text below with </p><img src="ico1.png" height="50%" width="50%">
         <p id="lcipl"></p>
     </button>
     <div class="sprFocus"></div>

@@ -1,7 +1,6 @@
     window.addEventListener('DOMContentLoaded', (event) => {
-        let v = Array.prototype.slice.call(document.getElementsByClassName("sprtxt")).map(r => r.innerHTML).join(" ").split(" ").reduce((tmp, i) =>
-            tmp + (1000 / ((localStorage.getItem('4f:04:82') || 200) / 60)) * ((i.length / 5 - 1) * 0.5 + 1), 0);
-        document.getElementById("lcipl").innerHTML = " in " + Math.floor(v / 60000) + " minutes.";
+        document.getElementById("lcipl").innerHTML = " in " + Math.floor(Array.prototype.slice.call(document.getElementsByClassName("sprtxt")).map(r => r.innerHTML).join(" ").split(" ").reduce((tmp, i) =>
+            tmp + (1000 / ((localStorage.getItem('4f:04:82') || 200) / 60)) * ((i.length / 5 - 1) * 0.5 + 1), 0) / 60000) + " minutes.";
     });
 
     function spr(input) {
@@ -14,7 +13,7 @@
         let wpmCounter;
         let timect;
         let play = false;
-        let getText = () => ["--3--", "--2--", "--1--"].concat(Array.prototype.slice.call(input).map(r => (r.href) ? r.innerHTML + "&!$!&" + r.href : r.innerHTML).join(" ")
+        let getText = () => ["--3--", "--2--", "--1--"].concat(Array.prototype.slice.call(input).map(r => (r.href) ? r.innerHTML + "&!$!&" + r.href : (r.innerHTML||r.value)).join(" ")
             .split(" ")).reverse();
         let tCalc = () => term.reduce((tmp, i) => tmp + (1000 / (wpm / 60)) * ((i.length / 5 - 1) * 0.5 +
             1), 0);
@@ -89,6 +88,13 @@
                 term = getText();
                 timeRem = timeTotal = tCalc();
                 nextWord(term);
+            });
+            temp = temp1.appendChild(document.createElement('button'));
+            temp.style.cssText =
+                "background:red;color:black;border:none;border-left:1px solid black;font-size:10px;height:20px;";
+            temp.innerHTML = '_';
+            temp.addEventListener('click', () => {
+                 node.innerHTML = "";
             });
             timect = outer.appendChild(document.createElement('div'));
             timect.style.cssText =
