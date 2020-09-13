@@ -1,6 +1,6 @@
     window.addEventListener('DOMContentLoaded', (event) => {
-        document.getElementById("lcipl").innerHTML = " in " + Math.floor(Array.prototype.slice.call(document.getElementsByClassName("sprtxt")).map(r => r.innerHTML).join(" ").split(" ").reduce((tmp, i) =>
-            tmp + (1000 / ((localStorage.getItem('4f:04:82') || 200) / 60)) * ((i.length / 5 - 1) * 0.5 + 1), 0) / 60000) + " minutes.";
+        document.getElementById("lcipl").innerHTML = " in " + Math.ceil(Array.prototype.slice.call(document.getElementsByClassName("sprtxt")).map(r => r.innerHTML).join(" ").split(" ").reduce((tmp, i) =>
+            tmp + (1000 / ((localStorage.getItem('4f:04:82') || 200) / 60)) * ((i.length / 5 - 1) * 0.5 + 1), 0) / 60000) + " minutes or less.";
     });
 
     function spr(input) {
@@ -14,11 +14,11 @@
         let timect;
         let play = false;
         let getText = () => ["--3--", "--2--", "--1--"].concat(Array.prototype.slice.call(input).map(r => (r.href) ? r.innerHTML + "&!$!&" + r.href : (r.innerHTML||r.value)).join(" ")
-            .split(" ")).reverse();
-        let tCalc = () => term.reduce((tmp, i) => tmp + (1000 / (wpm / 60)) * ((i.length / 5 - 1) * 0.5 +
-            1), 0);
+            .split(" "));
+        let tCalc = (pos) => term.slice(pos).reduce((tmp, i) => tmp + (1000 / (wpm / 60)) * ((i.length / 5 - 1) * 0.5 + 1), 0);
         let term = getText();
-        let timeRem = timeTotal = tCalc();
+        let wordIndex = term.length;
+        let timeRem = timeTotal = tCalc(0);
         let setWpm = (dif) => {
             if (parseInt(wpm, 10) + dif >= 0) {
                 wpm = parseInt(wpm, 10) + dif;
@@ -27,15 +27,10 @@
                 localStorage.setItem('4f:04:82', wpm);
             }
         };
-        let tgPause = () => {
-            play = !play;
-            if (play) nextWord(term);
-        };
         let tosec = (ms) => {
             let s = ((ms % 60000) / 1000).toFixed(0);
             return Math.floor(ms / 60000) + ":" + (s < 10 ? '0' : '') + s;
         };
-        //TODO:add drag location selector
         (() => {
             var node = document.querySelector(".sprFocus");
             node.innerHTML = "";
@@ -46,9 +41,19 @@
             let temp = outer.appendChild(document.createElement('div'));
             temp.style.cssText =
                 "width:3px;background:black;height:7px;position:absolute;top:0px;left:50%;";
-            pgb = outer.appendChild(document.createElement('div'));
+            pgb = outer.appendChild(document.createElement('input'));
+            pgb.type="range";
+            pgb.min=0;
+            pgb.step=1;
+            pgb.max=term.length;
+            pgb.value=0;
             pgb.style.cssText =
-                "width:800px;background:red;height:4px;position:absolute;bottom:0px;";
+                "width:800px;height:4px;position:absolute;bottom:0px;";//TODO:can't make it red
+            pgb.disabled=true;
+            pgb.addEventListener('change', () => {
+                nextWord(pgb.value);
+                inner.innerHTML=term[pgb.value];
+            });
             temp = outer.appendChild(document.createElement('div'));
             temp.style.cssText =
                 "width:3px;background:black;height:7px;position:absolute;bottom:0px;left:50%;";
@@ -79,15 +84,18 @@
             pb.style.cssText =
                 "background:red;color:black;border:none;font-size:10px;height:20px;";
             pb.innerHTML = '&#9199;';
-            pb.addEventListener('click', () => tgPause());
+            pb.addEventListener('click', () => {
+                play = !play;
+                pgb.disabled=false;
+                if (play)nextWord(pgb.value);
+            });
             temp = temp1.appendChild(document.createElement('button'));
             temp.style.cssText =
                 "background:red;color:black;border:none;border-left:1px solid black;font-size:10px;height:20px;";
             temp.innerHTML = '&#8635;';
             temp.addEventListener('click', () => {
-                term = getText();
-                timeRem = timeTotal = tCalc();
-                nextWord(term);
+                timeRem = timeTotal = tCalc(0);
+                nextWord(0);
             });
             temp = temp1.appendChild(document.createElement('button'));
             temp.style.cssText =
@@ -103,11 +111,12 @@
             inner.style.cssText = "display:inline-block;transform:translate(8%);";
             inner.innerHTML = 'Press play';
         })();
-        let nextWord = (words) => {
+        let nextWord = (pos) => {
             if (play) {
-                let next = words.pop();
-                if (next.length < 3 && words.length && words[words.length - 1].length < 6) {
-                    next += ' ' + words.pop();
+                let next = term[pos++];
+                pgb.value = pos;
+                if (next.length < 3 && term.length && term[term.length - 1].length < 6) {
+                    next += ' ' + term[pos++];
                 }
                 if (next.indexOf('&!$!&') !== -1) {
                     inner.innerHTML = "";
@@ -118,16 +127,14 @@
                 } else inner.innerHTML = next;
 
                 let duration = (1000 / (wpm / 60)) * ((next.length / 5 - 1) * 0.5 + 1);
-                timeRem = tCalc();
-                pgb.style.width = 800 * ((timeTotal - timeRem) / timeTotal) + "px";
-                pgb.style.left = (timeTotal - timeRem) / timeTotal + "px";
+                timeRem = tCalc(pos);
                 timect.innerHTML = tosec(timeTotal - timeRem) + "/" + tosec(timeTotal);
                 let timeout = setTimeout(() => {
-                    if (words.length) {
+                    if (term.length) {
                         if (timeout !== gtimeout) {
                             return;
                         }
-                        nextWord(words);
+                        nextWord(pos);
                     } else {
                         clearTimeout(gtimeout);
                     }
