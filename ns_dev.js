@@ -22,7 +22,7 @@
         let setWpm = (dif) => {
             if (parseInt(wpm, 10) + dif >= 0) {
                 wpm = parseInt(wpm, 10) + dif;
-                timeTotal = tCalc();
+                timeTotal = tCalc(0);
                 wpmCounter.value = wpm;
                 localStorage.setItem('4f:04:82', wpm);
             }
