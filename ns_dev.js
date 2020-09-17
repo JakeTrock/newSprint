@@ -1,8 +1,3 @@
-    window.addEventListener('DOMContentLoaded', (event) => {
-        document.getElementById("lcipl").innerHTML = " in " + Math.ceil(Array.prototype.slice.call(document.getElementsByClassName("sprtxt")).map(r => r.innerHTML).join(" ").split` `.reduce((tmp, i) =>
-            tmp + (1000 / ((localStorage.getItem('4f:04:82') || 200) / 60)) * ((i.length / 5 - 1) * 0.5 + 1), 0) / 60000) + " minutes or less.";
-    });
-
     function spr(input) {
         let wpm = localStorage.getItem('4f:04:82') || 200;
         let gtimeout = 0;
@@ -13,21 +8,19 @@
         let wpmCounter;
         let timect;
         let play = false;
-        let getText = () => ["--3--", "--2--", "--1--"].concat(
-            Array.prototype.slice.call(input).map(r =>
-            (r.href) ? r.innerHTML.link(r.href) : (r.innerHTML||r.value)).join(" ")
-            .split` `);
-        let tCalc = (pos=0) => term.slice(pos).reduce((tmp, i) => tmp + (1000 / (wpm / 60)) * ((i.length / 5 - 1) * 0.5 + 1), 0);
-        let term = getText();
+        let lCalc = (x) => (1000 / (wpm / 60)) * ((x.length / 5 - 1) * 0.5 + 1);
+        let tCalc = (pos=0) => term.slice(pos).reduce((tmp, i) => tmp + lCalc(i), 0);
+let term = ["--3--", "--2--", "--1--"].concat(
+            [].concat.apply([],Array.prototype.slice.call(input).map(r =>
+            (r.href) ? r.innerHTML.link(r.href) : (r.innerHTML||r.value).split` `)).filter(n => n));
         let wordIndex = term.length;
         let timeTotal = tCalc();
         let setWpm = (dif) => {
             if (+wpm + dif >= 0) {
-                wpm = +wpm + dif;
+                localStorage.setItem('4f:04:82', wpm = +wpm + dif);
                 timeTotal = tCalc();
-                wpmCounter.value = wpm;
-                localStorage.setItem('4f:04:82', wpm);
             }
+            wpmCounter.value = wpm;
         };
         let tosec = (ms) => {
             let s = ((ms % 60000) / 1000).toFixed(0);
@@ -71,7 +64,7 @@
             wpmCounter.style.cssText =
                 "font-size:10px;line-height:10px;height:10px;margin:10px;";
             wpmCounter.value = wpm;
-            wpmCounter.addEventListener('input', () => wpm = wpmCounter.value);
+            wpmCounter.addEventListener('blur', () => setWpm(wpmCounter.value-wpm));
             temp = temp1.appendChild(document.createElement('button'));
             temp.style.cssText =
                 "background:#eeeeee;color:black;border:none;font-size:10px;";
@@ -80,11 +73,11 @@
             temp1 = outer.appendChild(document.createElement('div'));
             temp1.style.cssText =
                 "position:absolute;right:10px;flex-direction:row;display:flex;align-items:center;top:5px;";
-            pb = temp1.appendChild(document.createElement('button'));
-            pb.style.cssText =
+            temp = temp1.appendChild(document.createElement('button'));
+            temp.style.cssText =
                 "background:red;color:black;border:none;font-size:10px;height:20px;";
-            pb.innerHTML = '&#9199;';
-            pb.addEventListener('click', () => {
+            temp.innerHTML = '&#9199;';
+            temp.addEventListener('click', (e) => {
                 play = !play;
                 pgb.disabled=false;
                 if (play)nextWord(pgb.value);
@@ -93,10 +86,7 @@
             temp.style.cssText =
                 "background:red;color:black;border:none;border-left:1px solid black;font-size:10px;height:20px;";
             temp.innerHTML = '&#8635;';
-            temp.addEventListener('click', () => {
-                timeTotal = tCalc();
-                nextWord(0);
-            });
+            temp.addEventListener('click', () => nextWord(0));
             temp = temp1.appendChild(document.createElement('button'));
             temp.style.cssText =
                 "background:red;color:black;border:none;border-left:1px solid black;font-size:10px;height:20px;";
@@ -126,11 +116,11 @@
                             return;
                         }
                         nextWord(pos);
-                }, (1000 / (wpm / 60)) * ((next.length / 5 - 1) * 0.5 + 1));
+                }, lCalc(next));
                 gtimeout = timeout;
             } else {
-                        clearTimeout(gtimeout);
-                    }
+                clearTimeout(gtimeout);
+            }
             }
         };
     }

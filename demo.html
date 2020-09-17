@@ -8,13 +8,14 @@
 
 <body>
     <textarea class="ctext" style="width:60%;height:20%;"></textarea>
-    <button onclick="nsprint(document.getElementsByClassName('ctext'))" style="flex-direction:row;display:flex;">
-        <p>Read the custom text above with </p><img src="ico1.png" height="50%" width="50%">
-    </button>
-    <button onclick="nsprint(document.getElementsByClassName('sprtxt'))" style="flex-direction:row;display:flex;">
-        <p>Read the sample text below with </p><img src="ico1.png" height="50%" width="50%">
-        <p id="lcipl"></p>
-    </button>
+    <p>Read the custom text above with </p>
+    <a onclick="nsprint(document.getElementsByClassName('ctext'))">
+        <img src="ico1.png" style="width:6%;height:2%">
+    </a>
+    <p>Read the sample text below with </p>
+    <a onclick="nsprint(document.getElementsByClassName('sprtxt'))">
+        <img src="ico1.png" style="width:6%;height:2%">
+    </a>
     <div id="sprFocus"></div>
     <p class="sprtxt">lorem ipsum</p>
     <p class="sprtxt">lorem ipsum</p>
@@ -24,7 +25,7 @@
     <p class="sprtxt">lorem ipsum</p>
     <p class="sprtxt">lorem ipsum</p>
     <p class="sprtxt">lorem ipsum</p>
-    <p class="sprtxt">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+    <p class="sprtxt">The quick brown fox jumps over the  lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
 </body>
 
 </html>
