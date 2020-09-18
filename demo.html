@@ -7,14 +7,14 @@
 </head>
 
 <body>
-    <textarea class="ctext" style="width:60%;height:20%;"></textarea>
+    <textarea id="ctext" style="width:60%;height:20%;"></textarea>
     <p>Read the custom text above with </p>
-    <a onclick="nsprint(document.getElementsByClassName('ctext'))">
-        <img src="ico1.png" style="width:6%;height:2%">
+    <a onclick="nsprint(document.getElementById('ctext'),document.getElementById('sprFocus'))">
+        <img src="ico1.png" style="width:12%;height:4%">
     </a>
     <p>Read the sample text below with </p>
-    <a onclick="nsprint(document.getElementsByClassName('sprtxt'))">
-        <img src="ico1.png" style="width:6%;height:2%">
+    <a onclick="nsprint(document.getElementsByClassName('sprtxt'),document.getElementById('sprFocus'))">
+        <img src="ico1.png" style="width:12%;height:4%">
     </a>
     <div id="sprFocus"></div>
     <p class="sprtxt">lorem ipsum</p>

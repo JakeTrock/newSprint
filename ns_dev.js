@@ -1,4 +1,4 @@
-    function spr(input) {
+   function spr(input, output=Array.from(document.getElementsByTagName('body'))[0].appendChild(document.createElement('div'))) {
         let wpm = localStorage.getItem('4f:04:82') || 200;
         let gtimeout = 0;
         let inner;
@@ -8,27 +8,26 @@
         let wpmCounter;
         let timect;
         let play = false;
-        let lCalc = (x) => (1000 / (wpm / 60)) * ((x.length / 5 - 1) * 0.5 + 1);
-        let tCalc = (pos=0) => term.slice(pos).reduce((tmp, i) => tmp + lCalc(i), 0);
-let term = ["--3--", "--2--", "--1--"].concat(
+        const lCalc = (x) => (1000 / (wpm / 60)) * ((x.length / 5 - 1) * 0.5 + 1);
+        const tCalc = (pos=0) => term.slice(pos).reduce((tmp, i) => tmp + lCalc(i), 0);
+        const term = ["--3--", "--2--", "--1--"].concat(
             [].concat.apply([],Array.prototype.slice.call(input).map(r =>
             (r.href) ? r.innerHTML.link(r.href) : (r.innerHTML||r.value).split` `)).filter(n => n));
-        let wordIndex = term.length;
         let timeTotal = tCalc();
-        let setWpm = (dif) => {
+        const setWpm = (dif) => {
             if (+wpm + dif >= 0) {
                 localStorage.setItem('4f:04:82', wpm = +wpm + dif);
                 timeTotal = tCalc();
             }
             wpmCounter.value = wpm;
         };
-        let tosec = (ms) => {
+        const tosec = (ms) => {
             let s = ((ms % 60000) / 1000).toFixed(0);
             return ~~(ms / 60000) + ":" + (s < 10 ? '0' : '') + s;
         };
         (() => {
-            sprFocus.innerHTML = "";
-            outer = sprFocus.appendChild(document.createElement('div'));
+            output.innerHTML = "";
+            outer = output.appendChild(document.createElement('div'));
             inner = outer.appendChild(document.createElement('div'));
             outer.style.cssText =
                 "position:fixed;top:calc(50% - 50px);margin:auto;height:100px;min-width:800px;background:#f5f5f5;left:calc(50% - 400px);font-size:70px;text-align:center;line-height:100px;flex-direction:row;justify-content:center;align-items:center;display:flex;border-top:3px solid;border-bottom:3px solid;";
@@ -92,7 +91,7 @@ let term = ["--3--", "--2--", "--1--"].concat(
                 "background:red;color:black;border:none;border-left:1px solid black;font-size:10px;height:20px;";
             temp.innerHTML = '_';
             temp.addEventListener('click', () => {
-                 sprFocus.innerHTML = "";
+                 output.innerHTML = "";
             });
             timect = outer.appendChild(document.createElement('div'));
             timect.style.cssText =
