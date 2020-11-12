@@ -1,4 +1,5 @@
    function spr(input, output=Array.from(document.getElementsByTagName('body'))[0].appendChild(document.createElement('div'))) {
+       //TODO: add 15s back, 15s forward, better mobile support
         let wpm = localStorage.getItem('4f:04:82') || 200;
         let gtimeout = 0;
         let inner;
@@ -25,82 +26,7 @@
             let s = ((ms % 60000) / 1000).toFixed(0);
             return ~~(ms / 60000) + ":" + (s < 10 ? '0' : '') + s;
         };
-        (() => {
-            output.innerHTML = "";
-            outer = output.appendChild(document.createElement('div'));
-            inner = outer.appendChild(document.createElement('div'));
-            outer.style.cssText =
-                "position:fixed;top:calc(50% - 50px);margin:auto;height:100px;min-width:800px;background:#f5f5f5;left:calc(50% - 400px);font-size:70px;text-align:center;line-height:100px;flex-direction:row;justify-content:center;align-items:center;display:flex;border-top:3px solid;border-bottom:3px solid;";
-            let temp = outer.appendChild(document.createElement('div'));
-            temp.style.cssText =
-                "width:3px;background:black;height:7px;position:absolute;top:0px;left:50%;";
-            temp = outer.appendChild(document.createElement('div'));
-            temp.style.cssText =
-                "width:3px;background:black;height:7px;position:absolute;bottom:0px;left:50%;";
-            pgb = outer.appendChild(document.createElement('input'));
-            pgb.type="range";
-            pgb.value=pgb.min=0;
-            pgb.step=1;
-            pgb.max=term.length;
-            pgb.style.cssText =
-                "width:800px;height:4px;position:absolute;bottom:0px;";//TODO:can't make it red
-            pgb.disabled=true;
-            pgb.addEventListener('change', () => {
-                nextWord(pgb.value);
-                inner.innerHTML=term[pgb.value];
-            });
-            let temp1 = outer.appendChild(document.createElement('div'));
-            temp1.style.cssText =
-                "position:absolute;left:10px;flex-direction:row;display:flex;align-items:center;top:5px;";
-            temp = temp1.appendChild(document.createElement('button'));
-            temp.style.cssText =
-                "background:#eeeeee;color:black;border:none;font-size:10px;";
-            temp.innerHTML = '-';
-            temp.addEventListener('click', () => setWpm(-10));
-            wpmCounter = temp1.appendChild(document.createElement('input'));
-            wpmCounter.type = "text";
-            wpmCounter.size = "2";
-            wpmCounter.style.cssText =
-                "font-size:10px;line-height:10px;height:10px;margin:10px;";
-            wpmCounter.value = wpm;
-            wpmCounter.addEventListener('blur', () => setWpm(wpmCounter.value-wpm));
-            temp = temp1.appendChild(document.createElement('button'));
-            temp.style.cssText =
-                "background:#eeeeee;color:black;border:none;font-size:10px;";
-            temp.innerHTML = '+';
-            temp.addEventListener('click', () => setWpm(10));
-            temp1 = outer.appendChild(document.createElement('div'));
-            temp1.style.cssText =
-                "position:absolute;right:10px;flex-direction:row;display:flex;align-items:center;top:5px;";
-            temp = temp1.appendChild(document.createElement('button'));
-            temp.style.cssText =
-                "background:red;color:black;border:none;font-size:10px;height:20px;";
-            temp.innerHTML = '&#9199;';
-            temp.addEventListener('click', (e) => {
-                play = !play;
-                pgb.disabled=false;
-                if (play)nextWord(pgb.value);
-            });
-            temp = temp1.appendChild(document.createElement('button'));
-            temp.style.cssText =
-                "background:red;color:black;border:none;border-left:1px solid black;font-size:10px;height:20px;";
-            temp.innerHTML = '&#8635;';
-            temp.addEventListener('click', () => nextWord(0));
-            temp = temp1.appendChild(document.createElement('button'));
-            temp.style.cssText =
-                "background:red;color:black;border:none;border-left:1px solid black;font-size:10px;height:20px;";
-            temp.innerHTML = '_';
-            temp.addEventListener('click', () => {
-                 output.innerHTML = "";
-            });
-            timect = outer.appendChild(document.createElement('div'));
-            timect.style.cssText =
-                "position:absolute;right:10px;flex-direction:row;display:flex;align-items:center;bottom:5px;font-size:10px;height:15px;";
-            timect.innerHTML = "0:00/" + tosec(timeTotal);
-            inner.style.cssText = "display:inline-block;transform:translate(8%);";
-            inner.innerHTML = 'Press play';
-        })();
-        let nextWord = (pos) => {
+        const nextWord = (pos) => {
             if (play) {
                 let next = term[pos++];
                 if(next){
@@ -122,5 +48,125 @@
             }
             }
         };
+        const pause = () =>{
+                play = !play;
+                pgb.disabled=false;
+                if (play)nextWord(pgb.value);
+        };
+        const esc = () =>{
+          output.innerHTML = "";  
+        };
+        const sk = (skv) =>{
+            pause();
+            nextWord(Number(pgb.value)+skv);
+            pause();
+        };
+        (() => {
+            esc();
+            outer = output.appendChild(document.createElement('div'));
+            inner = outer.appendChild(document.createElement('div'));
+            outer.style.cssText =
+                "position:sticky;left:0px;height:10%;width:100%;background:#f5f5f5;font-size:70px;font-size: 5em;text-align:center;line-height:100px;flex-direction:row;justify-content:center;align-items:center;display:flex;border-top:3px solid;border-bottom:3px solid;";
+            let temp = outer.appendChild(document.createElement('div'));
+            temp.style.cssText =
+                "width:3px;background:black;height:7px;position:absolute;top:0px;left:50%;";
+            temp = outer.appendChild(document.createElement('div'));
+            temp.style.cssText =
+                "width:3px;background:black;height:7px;position:absolute;bottom:0px;left:50%;";
+            pgb = outer.appendChild(document.createElement('input'));
+            pgb.type="range";
+            pgb.value=pgb.min=0;
+            pgb.step=1;
+            pgb.max=term.length;
+            pgb.style.cssText =
+                "width:100%;height:4px;position:absolute;bottom:0px;";//TODO:can't make it red
+            pgb.disabled=true;
+            pgb.addEventListener('change', () => {
+                nextWord(pgb.value);
+                inner.innerHTML=term[pgb.value];
+            });
+            let temp1 = outer.appendChild(document.createElement('div'));
+            temp1.style.cssText =
+                "position:absolute;left:10px;flex-direction:row;display:flex;align-items:center;top:5px;";
+            temp = temp1.appendChild(document.createElement('button'));
+            temp.style.cssText =
+                "background:#eeeeee;color:black;border:none;font-size:10px;font-size: 0.25em;";
+            temp.innerHTML = '-';
+            temp.addEventListener('click', () => setWpm(-10));
+            wpmCounter = temp1.appendChild(document.createElement('input'));
+            wpmCounter.type = "text";
+            wpmCounter.size = "2";
+            wpmCounter.style.cssText =
+                "font-size:10px;font-size: 0.25em;line-height:10px;height:50%;margin:10px;";
+            wpmCounter.value = wpm;
+            wpmCounter.addEventListener('blur', () => setWpm(wpmCounter.value-wpm));
+            temp = temp1.appendChild(document.createElement('button'));
+            temp.style.cssText =
+                "background:#eeeeee;color:black;border:none;font-size:10px;font-size: 0.25em;";
+            temp.innerHTML = '+';
+            temp.addEventListener('click', () => setWpm(10));
+            temp1 = outer.appendChild(document.createElement('div'));
+            temp1.style.cssText =
+                "position:absolute;right:10px;flex-direction:row;display:flex;align-items:center;top:5px;";
+                
+            temp = temp1.appendChild(document.createElement('button'));
+            temp.style.cssText =
+                "background:red;color:black;border:none;font-size:10px;font-size: 0.25em;";
+            temp.innerHTML = '&#9194;&#xFE0E;';
+            temp.addEventListener('click', () => sk(-wpm/4));
+            
+            temp = temp1.appendChild(document.createElement('button'));
+            temp.style.cssText =
+                "background:red;color:black;border:none;border-left: 1px solid black;font-size:10px;font-size: 0.25em;";
+            temp.innerHTML = '&#9199;&#xFE0E;';
+            temp.addEventListener('click', () => pause());
+            
+            temp = temp1.appendChild(document.createElement('button'));
+            temp.style.cssText =
+                "background:red;color:black;border:none;border-left: 1px solid black;font-size:10px;font-size: 0.25em;";
+            temp.innerHTML = '&#9193;&#xFE0E;';
+            temp.addEventListener('click', () => sk(wpm/4));
+            temp = temp1.appendChild(document.createElement('button'));
+            temp.style.cssText =
+                "background:red;color:black;border:none;border-left:1px solid black;font-size:10px;font-size: 0.25em;";
+            temp.innerHTML = '&#8635;&#xFE0E;';
+            temp.addEventListener('click', () => nextWord(0));
+            temp = temp1.appendChild(document.createElement('button'));
+            temp.style.cssText =
+                "background:red;color:black;border:none;border-left:1px solid black;font-size:10px;font-size: 0.25em;";
+            temp.innerHTML = '_';
+            temp.addEventListener('click', () => esc());
+            timect = outer.appendChild(document.createElement('div'));
+            timect.style.cssText =
+                "position:absolute;right:10px;flex-direction:row;display:flex;align-items:center;bottom:5px;font-size:10px;font-size: 0.25em;height:15px;";
+            timect.innerHTML = "0:00/" + tosec(timeTotal);
+            inner.style.cssText = "display:inline-block;transform:translate(8%);";
+            inner.innerHTML = 'Press play';
+            outer.onkeydown = (e) => {
+            switch (e.keyCode) {
+                case 32:
+                    pause();
+                break;
+                case 27:
+                    esc();
+                break;
+                case 39:
+                    sk(wpm/4);
+                break;
+                case 37:
+                    sk(-wpm/4);
+                break;
+                case 38:
+                    setWpm(10)
+                break;
+                case 40:
+                    setWpm(-10)
+                break;
+            }
+            };
+            outer.addEventListener('wheel', (e) => {
+                sk(e.wheelDelta/12)
+            });
+        })();
     }
     window['nsprint'] = spr;
