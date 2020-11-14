@@ -60,6 +60,7 @@
         };
         const sk = (skv) =>{
             pause();
+            console.log(Number(pgb.value)+skv);
             nextWord(Number(pgb.value)+skv);
             pause();
         };
@@ -71,17 +72,17 @@
                 "position:sticky;left:0px;height:10%;width:100%;background:#f5f5f5;font-size:70px;font-size: 5em;text-align:center;line-height:100px;flex-direction:row;justify-content:center;align-items:center;display:flex;border-top:3px solid;border-bottom:3px solid;";
             let temp = outer.appendChild(document.createElement('div'));
             temp.style.cssText =
-                "width:3px;background:black;height:7px;position:absolute;top:0px;left:50%;";
+                "width:0.18%;background:black;height:8%;position:absolute;top:0%;left:50%;";
             temp = outer.appendChild(document.createElement('div'));
             temp.style.cssText =
-                "width:3px;background:black;height:7px;position:absolute;bottom:0px;left:50%;";
+                "width:0.18%;background:black;height:8%;position:absolute;bottom:0%;left:50%;";
             pgb = outer.appendChild(document.createElement('input'));
             pgb.type="range";
             pgb.value=pgb.min=0;
             pgb.step=1;
             pgb.max=term.length;
             pgb.style.cssText =
-                "width:100%;height:4px;position:absolute;bottom:0px;";//TODO:can't make it red
+                "width:100%;height:4%;position:absolute;bottom:0%;";//TODO:can't make it red
             pgb.disabled=true;
             pgb.addEventListener('change', () => {
                 nextWord(pgb.value);
@@ -89,7 +90,7 @@
             });
             let temp1 = outer.appendChild(document.createElement('div'));
             temp1.style.cssText =
-                "position:absolute;left:10px;flex-direction:row;display:flex;align-items:center;top:5px;";
+                "position:absolute;left:1%;flex-direction:row;display:flex;align-items:center;top:5%;";
             temp = temp1.appendChild(document.createElement('button'));
             temp.style.cssText =
                 "background:#eeeeee;color:black;border:none;font-size:10px;font-size: 0.25em;";
@@ -99,7 +100,7 @@
             wpmCounter.type = "text";
             wpmCounter.size = "2";
             wpmCounter.style.cssText =
-                "font-size:10px;font-size: 0.25em;line-height:10px;height:50%;margin:10px;";
+                "font-size:10px;font-size: 0.25em;line-height:10%;height:50%;margin:10px;";
             wpmCounter.value = wpm;
             wpmCounter.addEventListener('blur', () => setWpm(wpmCounter.value-wpm));
             temp = temp1.appendChild(document.createElement('button'));
@@ -108,18 +109,14 @@
             temp.innerHTML = '+';
             temp.addEventListener('click', () => setWpm(10));
             temp1 = outer.appendChild(document.createElement('div'));
-            temp1.style.cssText =
-                "position:absolute;right:10px;flex-direction:row;display:flex;align-items:center;top:5px;";
-                
+            temp1.style.cssText = "position:absolute;right:1%;flex-direction:row;display:flex;align-items:center;top:5%;";
             temp = temp1.appendChild(document.createElement('button'));
-            temp.style.cssText =
-                "background:red;color:black;border:none;font-size:10px;font-size: 0.25em;";
+            temp.style.cssText = "background:red;color:black;border:none;font-size:10px;font-size: 0.25em;";
             temp.innerHTML = '&#9194;&#xFE0E;';
             temp.addEventListener('click', () => sk(-wpm/4));
             
             temp = temp1.appendChild(document.createElement('button'));
-            temp.style.cssText =
-                "background:red;color:black;border:none;border-left: 1px solid black;font-size:10px;font-size: 0.25em;";
+            temp.style.cssText = "background:red;color:black;border:none;border-left: 1px solid black;font-size:10px;font-size: 0.25em;";
             temp.innerHTML = '&#9199;&#xFE0E;';
             temp.addEventListener('click', () => pause());
             
@@ -136,7 +133,7 @@
             temp.addEventListener('click', () => esc());
             timect = outer.appendChild(document.createElement('div'));
             timect.style.cssText =
-                "position:absolute;right:10px;flex-direction:row;display:flex;align-items:center;bottom:5px;font-size:10px;font-size: 0.25em;height:15px;";
+                "position:absolute;right:1%;flex-direction:row;display:flex;align-items:center;bottom:5%;font-size:10px;font-size: 0.25em;height:15px;";
             timect.innerHTML = "0:00/" + tosec(timeTotal);
             inner.style.cssText = "display:inline-block;transform:translate(8%);";
             inner.innerHTML = 'Press play';
