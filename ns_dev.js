@@ -1,5 +1,5 @@
    function spr(input, output=Array.from(document.getElementsByTagName('body'))[0].appendChild(document.createElement('div'))) {
-       //TODO: add 15s back, 15s forward, better mobile support
+       //TODO: better mobile support
         let wpm = localStorage.getItem('4f:04:82') || 200;
         let gtimeout = 0;
         let inner;
@@ -23,15 +23,15 @@
             wpmCounter.value = wpm;
         };
         const tosec = (ms) => {
-            let s = ((ms % 60000) / 1000).toFixed(0);
+            const s = ((ms % 60000) / 1000).toFixed(0);
             return ~~(ms / 60000) + ":" + (s < 10 ? '0' : '') + s;
         };
         const nextWord = (pos) => {
-            if (play) {
+            if (play && term.length) {
                 let next = term[pos++];
                 if(next){
                 pgb.value = pos;
-                if (next.length < 3 && term.length && term[term.length - 1].length < 6) {
+                if (next.length < 3) {
                     next += ' ' + term[pos++];
                 }
                 inner.innerHTML = next;
@@ -45,6 +45,8 @@
                 gtimeout = timeout;
             } else {
                 clearTimeout(gtimeout);
+                inner.innerHTML = '&#8635;&#xFE0E;';
+                inner.addEventListener('click', () => nextWord(0));
             }
             }
         };
@@ -126,15 +128,11 @@
                 "background:red;color:black;border:none;border-left: 1px solid black;font-size:10px;font-size: 0.25em;";
             temp.innerHTML = '&#9193;&#xFE0E;';
             temp.addEventListener('click', () => sk(wpm/4));
+                        
             temp = temp1.appendChild(document.createElement('button'));
             temp.style.cssText =
                 "background:red;color:black;border:none;border-left:1px solid black;font-size:10px;font-size: 0.25em;";
-            temp.innerHTML = '&#8635;&#xFE0E;';
-            temp.addEventListener('click', () => nextWord(0));
-            temp = temp1.appendChild(document.createElement('button'));
-            temp.style.cssText =
-                "background:red;color:black;border:none;border-left:1px solid black;font-size:10px;font-size: 0.25em;";
-            temp.innerHTML = '_';
+            temp.innerHTML = '&times;&#xFE0E;';
             temp.addEventListener('click', () => esc());
             timect = outer.appendChild(document.createElement('div'));
             timect.style.cssText =
