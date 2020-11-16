@@ -1,5 +1,4 @@
    function spr(input, output=Array.from(document.getElementsByTagName('body'))[0].appendChild(document.createElement('div'))) {
-       //TODO: better mobile support
         let wpm = localStorage.getItem('4f:04:82') || 200;
         let gtimeout = 0;
         let inner;
