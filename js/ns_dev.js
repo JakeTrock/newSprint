@@ -1,4 +1,7 @@
-   function spr(input, output=Array.from(document.getElementsByTagName('body'))[0].appendChild(document.createElement('div'))) {
+   function spr(input, output=Array.from(document.getElementsByTagName('body'))[0].appendChild(document.createElement('div')),css="./css/ns_prod.css") {
+       const head=Array.prototype.slice.call(document.getElementsByTagName("head"))[0].appendChild(document.createElement('link'));
+       head.rel="stylesheet";
+       head.href=css;
         let wpm = localStorage.getItem('4f:04:82') || 200;
         let gtimeout = 0;
         let inner;
@@ -58,10 +61,20 @@
           output.innerHTML = "";  
         };
         const sk = (skv) =>{
-            pause();
-            console.log(Number(pgb.value)+skv);
-            nextWord(Number(pgb.value)+skv);
-            pause();
+            const np = ~~Number(pgb.value)+skv;
+                pause();
+                switch (np) {
+                case np<0:
+                    pgb.value=0;
+                break;
+                case np>term.length:
+                    pgb.value=term.length;
+                break;
+                default:
+                    pgb.value=np;
+                break;
+                }
+                pause();
         };
         (() => {
             esc();

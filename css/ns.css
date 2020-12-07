@@ -77,7 +77,8 @@
   top: 50%;
   font-size: 10px;
   font-size: 0.25em;
-  height: 15%;
+  height: 5%;
+  line-height: 1;
 }
 /* inner */
 .nsp_inr{
