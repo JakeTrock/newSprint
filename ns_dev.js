@@ -1,21 +1,4 @@
    function spr(input, output=Array.from(document.getElementsByTagName('body'))[0].appendChild(document.createElement('div'))) {
-       const head=Array.prototype.slice.call(document.getElementsByTagName("head"))[0].appendChild(document.createElement('link'));
-       head.rel="stylesheet";
-       head.href= `./css/prod/ns_${(function() {
-            const test = function(regexp) {return regexp.test(window.navigator.userAgent)};
-            switch (true) {
-                case test(/edg/i): return "Edge";
-                case test(/trident/i): return "IE";
-                case test(/firefox|fxios/i): return "Firefox";
-                case test(/opr\//i): return "Opera";
-                case test(/ucbrowser/i): return "UCBrow";
-                case test(/samsungbrowser/i): return "SamsungBrow";
-                case test(/chrome|chromium|crios/i): return "Chrome";
-                case test(/safari/i): return "Safari";
-                default: return "fallback";
-            }
-        })()}_prod.css`;
-        
         let wpm = localStorage.getItem('4f:04:82') || 200;
         let gtimeout = 0;
         let inner;
