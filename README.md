@@ -5,15 +5,16 @@
 # for bloggers/news site owners/whatever
 Newsprint(4.3k) is a tool that reduces eye strain by using large text, in one place so your eyes don't have to travel to read it. I've found it often allows me to be more attentive and retain more information than normal plaintext reading. I've created this as a dead-simple extension, however, some programming expertise is recommended in its implementation, as it requires you to specify how its text will be inputted.
 
-If you're a blog owner, check out adapters.json to find an adapter for your blog platform. If you can't, please open an issue
-
+If you're a blog owner, the following button should work for you(if it doesn't, then look at our custom adapters page):
+```
+<button onclick="(function(d, s){s = d.createElement('script');s.type='text/javascript';s.async=true;s.onload=nsprint(document.getElementsByClassName('paragraph'));s.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js';d.getElementsByTagName('head')[0].appendChild(script);}(document));"><img src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico1.png" height="50%" width="50%"></button>
+```
 Here's a quick example for plain html, if you've downloaded this repo, you can try it out with demo.html 
 
     
     <script src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js"></script><!--critical component #0, you probably already assumed this, but you're going to need to import this script-->
     <button onclick="nsprint(document.getElementsByClassName('sprtxt'))" style="flex-direction:row;display:flex;"><!--critical component #1, this specifies what text will be dumped into the reader, in this case, any element with the class sprtxt-->
-        <p>Read with </p><img src="ico1.png" height="50%" width="50%">
-        <p id="lcipl"></p>
+        <p>Read with </p><img src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico1.png" height="50%" width="50%">
     </button>
     <div class="sprFocus"></div><!--critical component #2, this provides a place for the script to inject the reader-->
     <p class="sprtxt">lorem ipsum</p>
