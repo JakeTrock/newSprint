@@ -3,11 +3,14 @@
  a nice tool for quick reading
 
 # for bloggers/news site owners/whatever
-Newsprint is a tool that reduces eye strain by using large text, in one place so your eyes don't have to travel to read it. I've found it often allows me to be more attentive and retain more information than normal plaintext reading. I've created this as a dead-simple extension, however, some programming expertise is recommended in its implementation, as it requires you to specify how its text will be inputted.
-Here's a quick example, if you've downloaded this repo, you can try it out with demo.html 
+Newsprint(4.3k) is a tool that reduces eye strain by using large text, in one place so your eyes don't have to travel to read it. I've found it often allows me to be more attentive and retain more information than normal plaintext reading. I've created this as a dead-simple extension, however, some programming expertise is recommended in its implementation, as it requires you to specify how its text will be inputted.
+
+If you're a blog owner, check out adapters.json to find an adapter for your blog platform. If you can't, please open an issue
+
+Here's a quick example for plain html, if you've downloaded this repo, you can try it out with demo.html 
 
     
-    <script src="ns_opt.js"></script><!--critical component #0, you probably already assumed this, but you're going to need to import this script-->
+    <script src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js"></script><!--critical component #0, you probably already assumed this, but you're going to need to import this script-->
     <button onclick="nsprint(document.getElementsByClassName('sprtxt'))" style="flex-direction:row;display:flex;"><!--critical component #1, this specifies what text will be dumped into the reader, in this case, any element with the class sprtxt-->
         <p>Read with </p><img src="ico1.png" height="50%" width="50%">
         <p id="lcipl"></p>
