@@ -7,7 +7,8 @@ Newsprint(4.3k) is a tool that reduces eye strain by using large text, in one pl
 
 If you're a blog owner, the following button should work for you(if it doesn't, then look at our custom adapters page):
 ```
-<button onclick="(function(d, s){s = d.createElement('script');s.type='text/javascript';s.async=true;s.onload=nsprint(document.getElementsByClassName('paragraph'));s.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js';d.getElementsByTagName('head')[0].appendChild(script);}(document));"><img src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico1.png" height="50%" width="50%"></button>
+    <button onclick="(function(d){var s=d.createElement('script');s.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js';s.type='text/javascript';s.onload=function(){nsprint(d.getElementsByClassName('sprtxt'),d.getElementById('sprFocus'))};d.head.appendChild(s);}(document));"><img src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico1.png" height="50%" width="50%"></button>
+
 ```
 Here's a quick example for plain html, if you've downloaded this repo, you can try it out with demo.html 
 
