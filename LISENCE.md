@@ -1,12 +1,12 @@
 Fair Source License, version 0.9
 
-Copyright (C) [year] [copyright owner]
+Copyright (C) 2020 Jacob Trock
 
-Licensor: [legal name of licensor]
+Licensor: Jacob Trock
 
-Software: [name software and version if applicable]
+Software: NewSprint
 
-Use Limitation: [number] users
+Use Limitation: 50 users
 
 License Grant. Licensor hereby grants to each recipient of the
 Software ("you") a non-exclusive, non-transferable, royalty-free and
