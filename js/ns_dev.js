@@ -1,5 +1,5 @@
    function spr(input, output = Array.from(document.getElementsByTagName('body'))[0].appendChild(document.createElement('div')), css = "https://cdn.jsdelivr.net/gh/jaketrock/newSprint/css/ns_prod.css") {
-       const head = document.head[0].appendChild(document.createElement('link'));
+       const head = document.head.appendChild(document.createElement('link'));
        head.rel = "stylesheet";
        head.href = css;
        let wpm = localStorage.getItem('4f:04:82') || 200;
