@@ -5,11 +5,27 @@
 # for bloggers/news site owners/whatever
 Newsprint(4.3k) is a tool that reduces eye strain by using large text, in one place so your eyes don't have to travel to read it. I've found it often allows me to be more attentive and retain more information than normal plaintext reading. I've created this as a dead-simple extension, however, some programming expertise is recommended in its implementation, as it requires you to specify how its text will be inputted.
 
-If you're a blog owner, the following button should work for you(if it doesn't, then look at our custom adapters page):
+If you're a blog owner, and want to just paste something and have it work, the following button should work for you:
 ```
-    <button onclick="(function(d){var s=d.createElement('script');s.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js';s.type='text/javascript';s.onload=function(){nsprint(d.getElementsByClassName('sprtxt'),d.getElementById('sprFocus'))};d.head.appendChild(s);}(document));"><img src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico1.png" height="50%" width="50%"></button>
+    <button onclick="(function(a){var b=a.createElement('script'),c=a.createElement('script');c.src='https://cdn.jsdelivr.net/gh/mozilla/readability/Readability.js';b.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint@e116810/js/ns_opt.js';b.type='text/javascript';c.type='text/javascript';b.onload=a.head.appendChild(c);c.onload=function(){nsprint((new Readability(document.cloneNode(!0))).parse().textContent)};a.head.appendChild(b)})(document);"><img src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico1.png" height="50%" width="50%"></button>
+```
+However if you choose to have a custom implementation you can use the following:
+```
+        <button onclick="(function(a){var b=a.createElement('script');b.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js';b.type='text/javascript';b.onload=function(){nsprint(a.getElementsByClassName('sprtxt'),a.getElementById('sprFocus'))};a.head.appendChild(b)})(document);"><img src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico1.png" height="50%" width="50%"></button>
+```
+    To customize this script to work, edit in the parenthesis after the part that says "nsprint".
 
+    Part 1 is the input selector, any tag with this class will be fed into the reader
+
+    (optional) Part 2 is the output, where the reader is rendered
+
+    (optional) Part 3 is the custom css if you don't like ours
 ```
+
+    nsprint(d.getElementsByClassName('sprtxt'),d.getElementById('sprFocus'),"http://example.com/custom.css")
+```
+
+
 Here's a quick example for plain html, if you've downloaded this repo, you can try it out with demo.html 
 
     
