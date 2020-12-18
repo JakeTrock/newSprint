@@ -94,7 +94,7 @@ function spr(input, output = document.body.appendChild(document.createElement('d
         temp1.className = "nsp_wdu";
 
         let temp = temp1.appendChild(document.createElement('button'));
-        temp.className = "nsp_wb";
+        temp.className = "nsp_btn";
         temp.innerHTML = '-';
         temp.addEventListener('click', () => setWpm(-10));
 
@@ -106,7 +106,7 @@ function spr(input, output = document.body.appendChild(document.createElement('d
         wpmCounter.addEventListener('blur', () => setWpm(wpmCounter.value - wpm));
 
         temp = temp1.appendChild(document.createElement('button'));
-        temp.className = "nsp_wb";
+        temp.className = "nsp_btn";
         temp.innerHTML = '+';
         temp.addEventListener('click', () => setWpm(10));
 
@@ -119,7 +119,7 @@ function spr(input, output = document.body.appendChild(document.createElement('d
         temp.addEventListener('click', () => pause());
 
         temp = temp1.appendChild(document.createElement('button'));
-        temp.className = "nsp_btn";
+        temp.className = "nsp_btn nsp_bl";
         temp.innerHTML = '&#9194;&#xFE0E;';
         temp.addEventListener('click', () => sk(-wpm / 4));
 
@@ -128,12 +128,12 @@ function spr(input, output = document.body.appendChild(document.createElement('d
         timect.innerHTML = "0:00/" + tosec(timeTotal);
 
         temp = temp1.appendChild(document.createElement('button'));
-        temp.className = "nsp_btn";
+        temp.className = "nsp_btn nsp_bl";
         temp.innerHTML = '&#9193;&#xFE0E;';
         temp.addEventListener('click', () => sk(wpm / 4));
 
         temp = temp1.appendChild(document.createElement('button'));
-        temp.className = "nsp_btn";
+        temp.className = "nsp_btn nsp_bl";
         temp.innerHTML = '&times;&#xFE0E;';
         temp.addEventListener('click', () => esc());
 
@@ -141,23 +141,23 @@ function spr(input, output = document.body.appendChild(document.createElement('d
         inner.innerHTML = 'Press play';
         inner.addEventListener('click', () => pause());
         outer.onkeydown = (e) => {
-            switch (e.keyCode) {
-                case 32:
+            switch (e.key) {
+                case ' ':
                     pause();
                     break;
-                case 27:
+                case 'Escape':
                     esc();
                     break;
-                case 39:
+                case 'ArrowRight':
                     sk(wpm / 4);
                     break;
-                case 37:
+                case 'ArrowLeft':
                     sk(-wpm / 4);
                     break;
-                case 38:
+                case 'ArrowUp':
                     setWpm(10)
                     break;
-                case 40:
+                case 'ArrowDown':
                     setWpm(-10)
                     break;
             }

@@ -29,15 +29,6 @@
   top: 5%;
 }
 
-/* wpm button */
-.nsp_wb {
-  background: white;
-  color: black;
-  border: none;
-  font-size: 10px;
-  font-size: 0.25em;
-}
-
 /* edit wpm box */
 .nsp_wad {
   font-size: 10px;
@@ -62,6 +53,8 @@
   background: red;
   color: black;
   border: none;
+  height: 35px;
+  width: 35px;
   font-size: 15px;
   font-size: 0.3em;
 }
@@ -71,9 +64,15 @@
   background: red;
   color: black;
   border: none;
-  border-left: 1px solid black;
+  height: 30px;
+  width: 30px;
   font-size: 10px;
   font-size: 0.25em;
+}
+
+/*left border*/
+.nsp_bl{
+  border-left: 1px solid black;
 }
 
 /* timer */
