@@ -1,0 +1,23 @@
+{
+  "name": "newSprint",
+  "version": "1.0.0",
+  "description": "![the newsprint icon](ico1.png) # newSprint  a nice tool for quick reading",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakeTrock/newSprint.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/JakeTrock/newSprint/issues"
+  },
+  "homepage": "https://github.com/JakeTrock/newSprint#readme",
+  "dependencies": {
+    "google-closure-compiler": "^20201207.0.0",
+    "uglifycss": "0.0.29"
+  }
+}
