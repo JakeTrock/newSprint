@@ -2,6 +2,9 @@
 # newSprint
  a nice tool for quick reading
 
+# Live demo: [here](https://cleanconnect.us/programs/newSprint/demo.html)
+
+
 # for bloggers/news site owners/whatever
 Newsprint(4.3k) is a tool that reduces eye strain by using large text, in one place so your eyes don't have to travel to read it. I've found it often allows me to be more attentive and retain more information than normal plaintext reading. I've created this as a dead-simple extension, however, some programming expertise is recommended in its implementation, as it requires you to specify how its text will be inputted.
 
