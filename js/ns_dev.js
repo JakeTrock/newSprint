@@ -15,7 +15,6 @@ function spr(input, output = document.body.appendChild(document.createElement('d
     const term = (typeof input == "string") ? input.split ` `.filter(n => n).map(r => r.includes("](") ?
         `<a href=${r.split(/[()]/)[1]}>${r.split(/\[(.*?)\]/)[1]}</a>` : r) : [].concat.apply([], Array.prototype.slice.call(input).map(r =>
         (r.href) ? r.innerHTML.link(r.href) : (r.innerHTML || r.value).split ` `)).filter(n => n);
-        
     let timeTotal = tCalc();
     const setWpm = (dif) => {
         if (+wpm + dif >= 0) {

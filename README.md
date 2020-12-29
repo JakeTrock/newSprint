@@ -1,4 +1,7 @@
 ![the newsprint icon](ico1.png)
+
+[![](https://data.jsdelivr.com/v1/package/gh/jaketrock/newSprint/badge)](https://www.jsdelivr.com/package/gh/jaketrock/newSprint)
+
 # newSprint
  a nice tool for quick reading
 
