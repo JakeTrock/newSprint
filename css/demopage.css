@@ -1,0 +1,42 @@
+/* displaybox */
+.dbox {
+    border: 3px solid red;
+    padding: 25px 25px 75px 75px;
+}
+/* hr */
+hr {
+    border-top: 1px dashed red;
+}
+/* heading */
+h1 {
+    font-size: 4em;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    margin: 10px 0;
+}
+/* heading 2 */
+
+h2 {
+    font-size: 2em;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+/* paragraph */
+
+p {
+    font-size: 1em;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.codecontainer {
+    border: 1px dashed grey;
+    font-size: 1em;
+    font-family: Tahoma, sans-serif;
+    font-weight: 400;
+    margin: 10px 0;
+    overflow:scroll;
+}
