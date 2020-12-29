@@ -12,8 +12,10 @@ function spr(input, output = document.body.appendChild(document.createElement('d
     let play = false;
     const lCalc = (x) => (1000 / (wpm / 60)) * ((x.length / 5 - 1) * 0.5 + 1);
     const tCalc = (pos = 0) => term.slice(pos).reduce((tmp, i) => tmp + lCalc(i), 0);
-    const term = (typeof input == "string") ? input.split ` `.filter(n => n) : [].concat.apply([], Array.prototype.slice.call(input).map(r =>
+    const term = (typeof input == "string") ? input.split ` `.filter(n => n).map(r => r.includes("](") ?
+        `<a href=${r.split(/[()]/)[1]}>${r.split(/\[(.*?)\]/)[1]}</a>` : r) : [].concat.apply([], Array.prototype.slice.call(input).map(r =>
         (r.href) ? r.innerHTML.link(r.href) : (r.innerHTML || r.value).split ` `)).filter(n => n);
+        
     let timeTotal = tCalc();
     const setWpm = (dif) => {
         if (+wpm + dif >= 0) {
