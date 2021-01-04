@@ -75,6 +75,29 @@ function spr(input, output = document.body.appendChild(document.createElement('d
         }
         pause();
     };
+    document.body.onkeydown = (e) => {
+        switch (e.key) {
+            case ' ':
+                pause();
+                break;
+            case 'Escape':
+                esc();
+                break;
+            case 'ArrowRight':
+                sk(term.length / wpm);
+                break;
+            case 'ArrowLeft':
+                sk(-term.length / wpm);
+                break;
+            case 'ArrowUp':
+                setWpm(10)
+                break;
+            case 'ArrowDown':
+                setWpm(-10)
+                break;
+        }
+    };
+    document.body.addEventListener('wheel', (e) => sk(e.deltaY));
     (() => {
         esc();
         outer = output.appendChild(document.createElement('div'));
@@ -141,31 +164,6 @@ function spr(input, output = document.body.appendChild(document.createElement('d
         inner.className = "nsp_inr";
         inner.innerHTML = 'Press play';
         inner.addEventListener('click', () => pause());
-        outer.onkeydown = (e) => {
-            switch (e.key) {
-                case ' ':
-                    pause();
-                    break;
-                case 'Escape':
-                    esc();
-                    break;
-                case 'ArrowRight':
-                    sk(wpm / 4);
-                    break;
-                case 'ArrowLeft':
-                    sk(-wpm / 4);
-                    break;
-                case 'ArrowUp':
-                    setWpm(10)
-                    break;
-                case 'ArrowDown':
-                    setWpm(-10)
-                    break;
-            }
-        };
-        outer.addEventListener('wheel', (e) => {
-            sk(e.wheelDelta / 12)
-        });
     })();
 }
 window['nsprint'] = spr;
