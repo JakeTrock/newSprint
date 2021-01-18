@@ -7,21 +7,21 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="200mm"
-   height="25mm"
-   viewBox="0 0 200 25"
+   width="73mm"
+   height="23mm"
+   viewBox="0 0 73 23"
    version="1.1"
    id="svg8"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="ico1.svg"
-   inkscape:export-filename="/home/bluushift/Desktop/projects ⁄ other/newSprint/newSprint/ico2.png"
-   inkscape:export-xdpi="25.4"
-   inkscape:export-ydpi="25.4">
+   sodipodi:docname="ico0.svg"
+   inkscape:export-filename="/home/bluushift/Desktop/projects ⁄ other/newSprint/newSprint/ico1.png"
+   inkscape:export-xdpi="67.830742"
+   inkscape:export-ydpi="67.830742">
   <defs
      id="defs2">
     <rect
        x="2.0246515"
-       y="279.7022"
+       y="279.70221"
        width="100.54274"
        height="20.047882"
        id="rect243" />
@@ -97,7 +97,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -107,25 +107,11 @@
      id="layer1"
      transform="translate(0,-277)"
      style="display:inline">
-    <rect
-       style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.296777"
-       id="rect110"
-       width="105"
-       height="25"
-       x="0"
-       y="277" />
-    <rect
-       style="fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke-width:0.282292"
-       id="rect110-3"
-       width="95"
-       height="25"
-       x="105"
-       y="277" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot4747"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       transform="matrix(0.37103612,0,0,0.37103612,116.6202,278.96237)"><flowRegion
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.37103611,0,0,0.37103611,-0.22574756,277.56174)"><flowRegion
          id="flowRegion4749"><rect
            id="rect4751"
            width="295.71429"
@@ -136,58 +122,50 @@
    style="fill:#ff0000"
    id="flowSpan5192">s</flowSpan>print</flowPara></flowRoot>
     <rect
-       style="fill:#000000;fill-opacity:1;stroke-width:0.2578"
+       style="display:inline;fill:#000000;fill-opacity:1;stroke-width:0.2578"
        id="rect174"
        width="0.37644783"
        height="5.4314675"
-       x="153.58235"
-       y="280.12033" />
+       x="36.736408"
+       y="278.7197" />
     <rect
-       style="fill:#000000;fill-opacity:1;stroke-width:0.2578"
+       style="display:inline;fill:#000000;fill-opacity:1;stroke-width:0.2578"
        id="rect174-6"
        width="0.37644783"
        height="5.4314675"
-       x="118.18456"
-       y="280.12033" />
+       x="1.338616"
+       y="278.7197" />
     <rect
-       style="fill:#000000;fill-opacity:1;stroke-width:0.661621"
+       style="display:inline;fill:#000000;fill-opacity:1;stroke-width:0.66162"
        id="rect174-7"
        width="0.37644783"
        height="35.774235"
-       x="-280.12033"
-       y="118.18456"
+       x="-278.7197"
+       y="1.338616"
        transform="rotate(-90)" />
     <rect
-       style="fill:#000000;fill-opacity:1;stroke-width:0.2578"
+       style="display:inline;fill:#000000;fill-opacity:1;stroke-width:0.2578"
        id="rect174-3"
        width="0.37644783"
        height="5.4314675"
-       x="188.20686"
-       y="-300.0173"
+       x="71.360916"
+       y="-298.61667"
        transform="scale(1,-1)" />
     <rect
-       style="fill:#000000;fill-opacity:1;stroke-width:0.2578"
+       style="display:inline;fill:#000000;fill-opacity:1;stroke-width:0.2578"
        id="rect174-6-5"
        width="0.37644783"
        height="5.4314675"
-       x="146.89613"
-       y="-299.64087"
+       x="30.050184"
+       y="-298.24023"
        transform="scale(1,-1)" />
     <rect
-       style="fill:#000000;fill-opacity:1;stroke-width:0.710977"
+       style="display:inline;fill:#000000;fill-opacity:1;stroke-width:0.710978"
        id="rect174-7-6"
        width="0.37644783"
        height="41.31073"
-       x="299.64087"
-       y="146.89613"
+       x="298.24023"
+       y="30.050184"
        transform="matrix(0,1,1,0,0,0)" />
-    <text
-       xml:space="preserve"
-       id="text241"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect243);fill:#ececec;fill-opacity:1;stroke:none;"
-       transform="translate(4.7625002,4.7625002)"><tspan
-         x="2.0253906"
-         y="289.33261"><tspan
-           style="fill:#ececec">Read it faster with</tspan></tspan></text>
   </g>
 </svg>
