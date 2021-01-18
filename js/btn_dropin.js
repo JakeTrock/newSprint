@@ -1,7 +1,7 @@
 (function (d) {
     var s = d.createElement('script'),
         c = d.createElement('script');
-    c.src = 'https://cdn.jsdelivr.net/gh/mozilla/readability/Readability.js';
+    c.src = 'https://cdn.jsdelivr.net/gh/jaketrock/rb-c-stage@master/Readable_closure.js';
     s.src = 'https://cdn.jsdelivr.net/gh/jaketrock/newSprint@master/js/ns_opt.js';
 
     s.type = 'text/javascript';
