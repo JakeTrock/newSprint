@@ -108,7 +108,7 @@
      transform="translate(0,-277)"
      style="display:inline">
     <rect
-       style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.296777"
+       style="fill:#ececec;fill-opacity:1;fill-rule:evenodd;stroke-width:0.296777"
        id="rect110"
        width="105"
        height="25"
@@ -184,10 +184,10 @@
     <text
        xml:space="preserve"
        id="text241"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect243);fill:#ececec;fill-opacity:1;stroke:none;"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect243);fill:#ff0000;fill-opacity:1;stroke:none;"
        transform="translate(4.7625002,4.7625002)"><tspan
          x="2.0253906"
          y="289.33261"><tspan
-           style="fill:#ececec">Read it faster with</tspan></tspan></text>
+           style="fill:#ff0000">Read it faster with</tspan></tspan></text>
   </g>
 </svg>
