@@ -140,7 +140,7 @@ function spr(input, output = document.body.appendChild(document.createElement('d
         temp1.className = "nsp_mcl";
 
         ppb = temp1.appendChild(document.createElement('button'));
-        ppb.className = "nsp_pb";
+        ppb.className = "nsp_btn";
         ppb.innerHTML = '&#9654;&#xFE0E;';
         ppb.addEventListener('click', () => pause());
 

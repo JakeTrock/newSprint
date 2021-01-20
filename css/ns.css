@@ -48,18 +48,6 @@
   top: 5%;
 }
 
-/* pause button */
-.nsp_pb {
-  background: red;
-  color: black;
-  border: none;
-  max-height: 35px;
-  max-width: 35px;
-  line-height: 35px;
-  font-size: 15px;
-  font-size: 0.3em;
-}
-
 /* button */
 .nsp_btn {
   background: red;
@@ -124,7 +112,7 @@ input[type=range].nsp_sli::-webkit-slider-thumb {
   margin-top: -8px;
   width: 34px;
   height: 25px;
-  background: red;
+  background: rgba(255, 0, 0, 0.4);
   border: none;
   border-radius: 28px;
   cursor: pointer;
@@ -142,7 +130,7 @@ input[type=range].nsp_sli::-moz-range-track {
 input[type=range].nsp_sli::-moz-range-thumb {
   width: 34px;
   height: 25px;
-  background: red;
+  background: rgba(255, 0, 0, 0.4);
   border: none;
   border-radius: 28px;
   cursor: pointer;
@@ -161,7 +149,7 @@ input[type=range].nsp_sli::-ms-track {
 input[type=range].nsp_sli::-ms-thumb {
   width: 34px;
   height: 25px;
-  background: red;
+  background: rgba(255, 0, 0, 0.4);
   border: none;
   border-radius: 28px;
   cursor: pointer;
