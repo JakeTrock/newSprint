@@ -7,6 +7,7 @@ function spr(input, output = document.body.appendChild(document.createElement('d
     let inner;
     let outer;
     let pgb;
+    let ppb;
     let wpmCounter;
     let timect;
     let play = false;
@@ -53,6 +54,7 @@ function spr(input, output = document.body.appendChild(document.createElement('d
     };
     const pause = () => {
         play = !play;
+        ppb.innerHTML = (play) ? '&#9208;&#xFE0E;' : '&#9654;&#xFE0E;';
         pgb.disabled = false;
         if (play) nextWord(pgb.value);
     };
@@ -137,10 +139,10 @@ function spr(input, output = document.body.appendChild(document.createElement('d
         temp1 = outer.appendChild(document.createElement('div'));
         temp1.className = "nsp_mcl";
 
-        temp = temp1.appendChild(document.createElement('button'));
-        temp.className = "nsp_pb";
-        temp.innerHTML = '&#9199;&#xFE0E;';
-        temp.addEventListener('click', () => pause());
+        ppb = temp1.appendChild(document.createElement('button'));
+        ppb.className = "nsp_pb";
+        ppb.innerHTML = '&#9654;&#xFE0E;';
+        ppb.addEventListener('click', () => pause());
 
         temp = temp1.appendChild(document.createElement('button'));
         temp.className = "nsp_btn nsp_bl";
@@ -162,7 +164,7 @@ function spr(input, output = document.body.appendChild(document.createElement('d
         temp.addEventListener('click', () => esc());
 
         inner.className = "nsp_inr";
-        inner.innerHTML = 'Press play';
+        inner.innerHTML = '&#9654;&#xFE0E;';
         inner.addEventListener('click', () => pause());
     })();
 }
