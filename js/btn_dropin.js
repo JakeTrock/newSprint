@@ -4,8 +4,8 @@
   var h = d.head;
   var s = d.createElement("script"),
     c = d.createElement("script");
-  c.src = p + "rb-c-stage@master/Readable_closure.js";
-  s.src = p + "newSprint@master/js/ns_opt.js";
+  c.src = p + "rb-c-stage/Readable_closure.js";
+  s.src = p + "newSprint/js/ns_opt.js";
 
   s.type = t;
   c.type = t;

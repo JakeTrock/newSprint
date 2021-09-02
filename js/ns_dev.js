@@ -1,7 +1,7 @@
 function spr(
   input,
   output = document.body.appendChild(document.createElement("div")),
-  css = "https://cdn.jsdelivr.net/gh/jaketrock/newSprint@master/css/ns_prod.css"
+  css = "https://cdn.jsdelivr.net/gh/jaketrock/newSprint/css/ns_prod.css"
 ) {
   const head = document.head.appendChild(document.createElement("link"));
   head.rel = "stylesheet";
