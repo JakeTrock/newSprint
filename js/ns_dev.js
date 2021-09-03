@@ -3,13 +3,9 @@ function spr(
   output = document.body.appendChild(document.createElement("div")),
   css = "https://cdn.jsdelivr.net/gh/jaketrock/newSprint/css/ns_prod.css"
 ) {
-  _: "© Jacob Trock";
-  if (nswr!==true) {
-    const head = document.head.appendChild(document.createElement("link"));
-    head.rel = "stylesheet";
-    head.href = css;
-  }
-  window.nswr = true;
+  const head = document.head.appendChild(document.createElement("link"));
+  head.rel = "stylesheet";
+  head.href = css;
   let wpm = localStorage.getItem("nsp+") || 200;
   let gtimeout = 0;
   let inner;
@@ -88,7 +84,6 @@ function spr(
   };
   const esc = () => {
     output.innerHTML = "";
-    window.nsop = false;
   };
   const sk = (skv) => {
     const np = ~~Number(pgb.value) + skv;
@@ -131,7 +126,6 @@ function spr(
   document.body.addEventListener("wheel", (e) => sk(e.deltaY));
   (() => {
     esc();
-    window.nsop = true;
     outer = output.appendChild(document.createElement("div"));
     inner = outer.appendChild(document.createElement("div"));
     outer.className = "nsp_out";

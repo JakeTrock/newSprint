@@ -10,17 +10,21 @@
   s.type = t;
   c.type = t;
 
-  function x() {
-    window.nspr = nsprint(
-      new Readability(document.cloneNode(true)).parse().textContent
-    );
+  function isc() {
+    for (e in h.childNodes) {
+      if (c.href === e.href) {
+        return true;
+      }
+    }
+    return false;
   }
-
-  if (window.nswr!==true) {
+  if (isc()) {
     s.onload = function () {
       d.head.appendChild(c);
     };
-    c.onload = x();
+    c.onload = function () {
+      nsprint(new Readability(document.cloneNode(true)).parse().textContent);
+    };
     h.appendChild(s);
-  } else x();
+  }
 })(document);
