@@ -11,12 +11,11 @@
   c.type = t;
 
   function x() {
-    window.nspr = nsprint(
-      new Readability(document.cloneNode(true)).parse().textContent
-    );
+    if (!localStorage.getItem("nstcd"))
+      nsprint(new Readability(document.cloneNode(true)).parse().textContent);
   }
 
-  if (window.nswr!==true) {
+  if (!window.nsprint) {
     s.onload = function () {
       d.head.appendChild(c);
     };
