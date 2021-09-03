@@ -2,11 +2,12 @@
   var s = d.createElement("script");
   s.src = "https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js";
   s.type = "text/javascript";
-
-  if (window.nswr!==true) {
-    s.onload = function () {
+  function x() {
+    if (!localStorage.getItem("nstcd"))
       nsprint(d.getElementsByClassName("sprtxt"), d.getElementById("sprFocus"));
-    };
-    d.head.appendChild(s);
   }
+  if (!window.nsprint) {
+    s.onload = x();
+    d.head.appendChild(s);
+  } else x();
 })(document);
