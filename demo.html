@@ -36,7 +36,7 @@
     Here's the simplest solution, the drop-in button. With this, all you need to do is include the following code in your site:
     </p>
     <div class="codecontainer">
-    &lt;img onMouseOver="this.style.boxShadow='0 0 5px 0 #f00'" onMouseOut="this.style.boxShadow=''" onclick="(function(d){var p='https://cdn.jsdelivr.net/gh/jaketrock/';var t='text/javascript';var h=d.head;var s=d.createElement('script'),c=d.createElement('script');c.src=p+'rb-c-stage/Readable_closure.js';s.src=p+'newSprint/js/ns_opt.js';s.type=t;c.type=t;function x(){if(!localStorage.getItem('nstcd'))nsprint((new Readability(document.cloneNode(true))).parse().textContent)}if(!window.nsprint){s.onload=function(){d.head.appendChild(c)};c.onload=x();h.appendChild(s)}else x()})(document);" src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico2.png"&gt;
+    &lt;img onMouseOver="this.style.boxShadow='0 0 5px 0 #f00'" onMouseOut="this.style.boxShadow=''" onclick="(function(d){var p='https://cdn.jsdelivr.net/gh/jaketrock/';var t='text/javascript';var h=d.head;var s=d.createElement('script'),c=d.createElement('script');c.src=p+'rb-c-stage/Readable_closure.js';s.src=p+'newSprint/js/ns_opt.js';s.type=t;c.type=t;function x(){window.nspr=nsprint((new Readability(document.cloneNode(true))).parse().textContent)}if(window.nswr!==true){s.onload=function(){d.head.appendChild(c)};c.onload=x();h.appendChild(s)}else x()})(document);" src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico2.png"&gt;
     </div>
     <a href="./demos/dropin_aa.html"><h2>demo</h2></a>
     </div>
@@ -48,7 +48,7 @@
     Here's the (second) simplest solution, the drop-in button, with specified text. This method has higher accuracy than the prior model, and is still accessible to people who only work in html:
     </p>
     <div class="codecontainer">
-    &lt;img onMouseOver="this.style.boxShadow='0 0 5px 0 #f00'" onMouseOut="this.style.boxShadow=''" onclick="(function(d){var s=d.createElement('script');s.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js';s.type='text/javascript';function x(){if(!localStorage.getItem('nstcd'))nsprint(d.getElementsByClassName('sprtxt'))}if(!window.nsprint){s.onload=x();d.head.appendChild(s)}else x()})(document);" src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico2.png"&gt;
+    &lt;img onMouseOver="this.style.boxShadow='0 0 5px 0 #f00'" onMouseOut="this.style.boxShadow=''" onclick="(function(d){var s=d.createElement('script');s.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js';s.type='text/javascript';if(window.nswr!==true){s.onload=function(){nsprint(d.getElementsByClassName('sprtxt'))};d.head.appendChild(s)}})(document);" src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico2.png"&gt;
     </div>
     <a href="./demos/dropin_ct.html"><h2>demo</h2></a>
     </div>
@@ -64,7 +64,7 @@
     var text = "changeme [links](https://example.com)";
     &lt;/script&gt;
     
-    &lt;img onMouseOver="this.style.boxShadow='0 0 5px 0 #f00'" onMouseOut="this.style.boxShadow=''" onclick="(function(d){var s=d.createElement('script');s.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js';s.type='text/javascript';function x(){if(!localStorage.getItem('nstcd'))nsprint(text)}if(!window.nsprint){s.onload=x();d.head.appendChild(s)}else x()})(document);" src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico2.png"&gt;
+    &lt;img onMouseOver="this.style.boxShadow='0 0 5px 0 #f00'" onMouseOut="this.style.boxShadow=''" onclick="(function(d){var s=d.createElement('script');s.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js';s.type='text/javascript';if(window.nswr!==true){s.onload=function(){nsprint(text)};d.head.appendChild(s)}})(document);" src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico2.png"&gt;
     </div>
     <a href="./demos/dropin_pt.html"><h2>demo</h2></a>
     </div>

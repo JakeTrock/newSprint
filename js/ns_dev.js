@@ -4,13 +4,13 @@ function spr(
   css = "https://cdn.jsdelivr.net/gh/jaketrock/newSprint/css/ns_prod.css"
 ) {
   _: "© Jacob Trock";
-  if (!window.nsprint) {
+  if (nswr!==true) {
     const head = document.head.appendChild(document.createElement("link"));
     head.rel = "stylesheet";
     head.href = css;
   }
-  let wpm =
-    localStorage.getItem("nsp+") || localStorage.setItem("nsp+", "200") || 200;
+  window.nswr = true;
+  let wpm = localStorage.getItem("nsp+") || 200;
   let gtimeout = 0;
   let inner;
   let outer;
@@ -85,11 +85,10 @@ function spr(
     ppb.innerHTML = `${play ? "&#9208;" : "&#9654;"}&#xFE0E;`;
     pgb.disabled = false;
     if (play) nextWord(pgb.value);
-    else localStorage.setItem("nstcd", pgb.value);
   };
   const esc = () => {
     output.innerHTML = "";
-    localStorage.removeItem("nstcd");
+    window.nsop = false;
   };
   const sk = (skv) => {
     const np = ~~Number(pgb.value) + skv;
@@ -132,14 +131,13 @@ function spr(
   document.body.addEventListener("wheel", (e) => sk(e.deltaY));
   (() => {
     esc();
+    window.nsop = true;
     outer = output.appendChild(document.createElement("div"));
     inner = outer.appendChild(document.createElement("div"));
     outer.className = "nsp_out";
     pgb = outer.appendChild(document.createElement("input"));
     pgb.type = "range";
-    pgb.value =
-      localStorage.getItem("nstcd") || localStorage.setItem("nstcd", "0") || 0;
-    pgb.min = 0;
+    pgb.value = pgb.min = 0;
     pgb.step = 1;
     pgb.max = term.length;
     pgb.className = "nsp_sli";
