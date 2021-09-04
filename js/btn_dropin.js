@@ -1,6 +1,6 @@
 (function (d) {
   function x() {
-    if (!localStorage.getItem("nstcd"))
+    if (!window.nsht)
       nsprint(new Readability(document.cloneNode(true)).parse().textContent);
   }
 

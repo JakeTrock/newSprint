@@ -89,7 +89,7 @@ function spr(
   };
   const esc = () => {
     output.innerHTML = "";
-    localStorage.removeItem("nstcd");
+    window.nsht = undefined;
   };
   const sk = (skv) => {
     const np = ~~Number(pgb.value) + skv;
@@ -107,7 +107,7 @@ function spr(
     }
     pause();
   };
-  document.body.onkeydown = (e) => {
+  const kd = (e) => {
     switch (e.key) {
       case " ":
         pause();
@@ -129,17 +129,17 @@ function spr(
         break;
     }
   };
-  document.body.addEventListener("wheel", (e) => sk(e.deltaY));
+  document.body.onwheel = (e) => sk(e.deltaY);
+  document.body.onkeydown = (e) => kd(e);
   (() => {
     esc();
     outer = output.appendChild(document.createElement("div"));
+    window.nsht = outer;
     inner = outer.appendChild(document.createElement("div"));
     outer.className = "nsp_out";
     pgb = outer.appendChild(document.createElement("input"));
     pgb.type = "range";
-    pgb.value =
-      localStorage.getItem("nstcd") || localStorage.setItem("nstcd", "0") || 0;
-    pgb.min = 0;
+    pgb.value = pgb.min = 0;
     pgb.step = 1;
     pgb.max = term.length;
     pgb.className = "nsp_sli";
@@ -199,5 +199,9 @@ function spr(
     inner.innerHTML = "&#9654;&#xFE0E;";
     inner.addEventListener("click", () => pause());
   })();
+  pgb.value =
+    Number(localStorage.getItem("nstcd")) ||
+    localStorage.setItem("nstcd", 0) ||
+    0;
 }
 window["nsprint"] = spr;
