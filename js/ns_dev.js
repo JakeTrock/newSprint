@@ -88,8 +88,7 @@ function spr(
     else localStorage.setItem("nstcd", pgb.value);
   };
   const esc = () => {
-    output.innerHTML = "";
-    window.nsht = undefined;
+    window.nsht = output.innerHTML = "";
   };
   const sk = (skv) => {
     const np = ~~Number(pgb.value) + skv;

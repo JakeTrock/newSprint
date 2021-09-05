@@ -1,6 +1,5 @@
 (function (d) {
   function x() {
-    if (!window.nsht)
       nsprint(new Readability(document.cloneNode(true)).parse().textContent);
   }
 
@@ -18,7 +17,7 @@
     s.onload = function () {
       d.head.appendChild(c);
     };
-    c.onload = x();
+    c.onload = function(){x()};
     h.appendChild(s);
-  } else x();
+  } else if (!window.nsht) x();
 })(document);
