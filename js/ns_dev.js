@@ -4,7 +4,7 @@ function spr(
   css = "https://cdn.jsdelivr.net/gh/jaketrock/newSprint/css/ns_prod.css"
 ) {
   _: "© Jacob Trock";
-  if (!window.nsprint) {
+  if (!window.nsht) {
     const head = document.head.appendChild(document.createElement("link"));
     head.rel = "stylesheet";
     head.href = css;
