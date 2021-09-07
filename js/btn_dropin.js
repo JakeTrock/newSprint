@@ -1,30 +1,23 @@
 (function (d) {
-  var p = "https://cdn.jsdelivr.net/gh/jaketrock/";
-  var t = "text/javascript";
-  var h = d.head;
-  var s = d.createElement("script"),
-    c = d.createElement("script");
-  c.src = p + "rb-c-stage@master/Readable_closure.js";
-  s.src = p + "newSprint@master/js/ns_opt.js";
-
-  s.type = t;
-  c.type = t;
-
-  function isc() {
-    for (e in h.childNodes) {
-      if (c.href === e.href) {
-        return true;
-      }
-    }
-    return false;
+  function x() {
+      nsprint(new Readability(document.cloneNode(true)).parse().textContent);
   }
-  if (isc()) {
+
+  if (!window.nsprint) {
+    var p = "https://cdn.jsdelivr.net/gh/jaketrock/";
+    var t = "text/javascript";
+    var h = d.head;
+    var s = d.createElement("script"),
+      c = d.createElement("script");
+    c.src = p + "rb-c-stage/Readable_closure.js";
+    s.src = p + "newSprint/js/ns_opt.js";
+  
+    s.type = t;
+    c.type = t;
     s.onload = function () {
       d.head.appendChild(c);
     };
-    c.onload = function () {
-      nsprint(new Readability(document.cloneNode(true)).parse().textContent);
-    };
+    c.onload = function(){x()};
     h.appendChild(s);
-  }
+  } else if (!window.nsht) x();
 })(document);
