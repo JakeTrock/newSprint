@@ -1,6 +1,6 @@
 (function (d) {
   var s = d.createElement("script");
-  s.src = "https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js";
+  s.src = "https://cdn.jsdelivr.net/gh/jaketrock/newSprint@master/js/ns_opt.js";
   s.type = "text/javascript";
   function x() {
       nsprint(d.getElementsByClassName("sprtxt")
