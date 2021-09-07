@@ -3,7 +3,9 @@
   s.src = "https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js";
   s.type = "text/javascript";
   function x() {
-      nsprint(d.getElementsByClassName("sprtxt"), d.getElementById("sprFocus"));
+      nsprint(d.getElementsByClassName("sprtxt")
+      // , d.getElementById("sprFocus")
+      );
   }
   if (!window.nsprint) {
     s.onload = function(){x()};

@@ -13,7 +13,7 @@ Newsprint(4.3k) is a tool that reduces eye strain by using large text, in one pl
 
 If you're a blog owner, and want to just paste something and have it work, the following button should work for you:
 ```
-   <img onMouseOver="this.style.boxShadow='0 0 5px 0 #f00'" onMouseOut="this.style.boxShadow=''" onclick="(function(d){var p='https://cdn.jsdelivr.net/gh/jaketrock/';var t='text/javascript';var h=d.head;var s=d.createElement('script'),c=d.createElement('script');c.src=p+'rb-c-stage/Readable_closure.js';s.src=p+'newSprint/js/ns_opt.js';s.type=t;c.type=t;function x(){if(!localStorage.getItem('nstcd'))nsprint((new Readability(document.cloneNode(true))).parse().textContent)}if(!window.nsprint){s.onload=function(){d.head.appendChild(c)};c.onload=x();h.appendChild(s)}else x()})(document);" src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico2.png">
+   <img onMouseOver="this.style.boxShadow='0 0 5px 0 #f00'" onMouseOut="this.style.boxShadow=''" onclick="(function(d){function x(){nsprint((new Readability(document.cloneNode(true))).parse().textContent)}if(!window.nsprint){var p='https://cdn.jsdelivr.net/gh/jaketrock/';var t='text/javascript';var h=d.head;var s=d.createElement('script'),c=d.createElement('script');c.src=p+'rb-c-stage/Readable_closure.js';s.src=p+'newSprint/js/ns_opt.js';s.type=t;c.type=t;s.onload=function(){d.head.appendChild(c)};c.onload=function(){x()};h.appendChild(s)}else if(!window.nsht)x()})(document);" src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico2.png">
 ```
 However if you choose to have a custom implementation you can use the following:
 ```

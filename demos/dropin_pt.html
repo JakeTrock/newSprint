@@ -8,7 +8,7 @@ var text = "If you're a blogger or anyone who makes things to read on the web, y
 </head>
 
 <body>
-    <img onMouseOver="this.style.boxShadow='0 0 5px 0 #f00'" onMouseOut="this.style.boxShadow=''" onclick="(function(d){var s=d.createElement('script');s.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js';s.type='text/javascript';function x(){if(!localStorage.getItem('nstcd'))nsprint(text)}if(!window.nsprint){s.onload=x();d.head.appendChild(s)}else x()})(document);" src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico2.png">
+    <img onMouseOver="this.style.boxShadow='0 0 5px 0 #f00'" onMouseOut="this.style.boxShadow=''" onclick="(function(d){var s=d.createElement('script');s.src='https://cdn.jsdelivr.net/gh/jaketrock/newSprint/js/ns_opt.js';s.type='text/javascript';function x(){nsprint(text)}if(!window.nsprint){s.onload=function(){x()};d.head.appendChild(s)}else if(!window.nsht)x()})(document);" src="https://cdn.jsdelivr.net/gh/jaketrock/newSprint/ico2.png">
 </body>
 
 </html>
