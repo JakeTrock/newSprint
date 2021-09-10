@@ -19,7 +19,7 @@ function spr(
   let wpmCounter;
   let timect;
   let play = false;
-  const lCalc = (x) => (1000 / (wpm / 60)) * ((x.length / 5 - 1) * 0.5 + 1);
+  const lCalc = (x) => (6000 * (5 + x.length)) / wpm;
   const tCalc = (pos = 0) =>
     term.slice(pos).reduce((tmp, i) => tmp + lCalc(i), 0);
   const term =
